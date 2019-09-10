@@ -8,11 +8,11 @@ const bodyParser = require('body-parser');
 
 // Setting CORS so that any website can
 // Access our API
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
+//   next();
+// });
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
