@@ -22,7 +22,6 @@ class App extends Component {
   };
   submitForm = () => {
     API.saveArticles({
-
       title: this.state.title,
       author: this.state.author,
       date: this.state.date,
