@@ -5,6 +5,9 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "braces": "^3.0.2",
+    "eslint-utils": "^1.4.2",
+    "mem": "^5.1.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "^2.1.1"
