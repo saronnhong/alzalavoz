@@ -18,24 +18,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose
-   // for the app to work as a deployed app with mLAB MongoDB provision on Heroku, use:
-  //  .connect(process.env.MONGODB_URI || 'mongodb://user:password1@ds045598.mlab.com:45598/heroku_xt21mbhz', { useNewUrlParser: true, useCreateIndex: true })
-   // for LOCAL Testing, use:
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/alzaDB', { useNewUrlParser: true})
+  // for the app to work as a deployed app with mLAB MongoDB provision on Heroku, use:
+   .connect(process.env.MONGODB_URI || 'mongodb://admin123:password123@ds155160.mlab.com:55160/heroku_6txqd7zb', { useNewUrlParser: true, useCreateIndex: true })
+  // for LOCAL Testing, use:
+  // .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/alzaDB', { useNewUrlParser: true })
   .then(() => console.log("MongoDB Connected!"))
   .catch(err => console.error(err));
 // Define API routes here
 
-app.post('/api/savearticle/:id', function(req, res) {
+app.post('/api/savearticle/:id', function (req, res) {
   console.log(req.body);
-  db.Article.create(req.body);
-  // db.Articles.create({})
-//   .then(function () {
-//     return db.Articles.findOneAndUpdate({title: "this"});
-// })
-    // .then(data => res.json(data))
-    // .catch(err => res.status(400).json(err));
-
+  db.Article.create(req.body)
+    .then(data => res.json(data))
+    .catch(err => res.status(400).json(err));
 });
 
 // Send every other request to the React app
