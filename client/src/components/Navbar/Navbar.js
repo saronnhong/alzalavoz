@@ -22,7 +22,7 @@ function Navbar(props) {
                         </li>
                         <li class="nav-item">
                             <Link smooth to="/portfolio">
-                                <div className="navMenu" href="#portSec" id="navPort" data-toggle="collapse" data-target=".navbar-collapse.show">Who We Are</div>
+                                <div className="navMenu" id="navPort" data-toggle="collapse" data-target=".navbar-collapse.show">Who We Are</div>
                             </Link>
                         </li>
                         <li class="nav-item">
@@ -35,11 +35,7 @@ function Navbar(props) {
                                 <div className="navMenu" id="navContact" data-toggle="collapse" data-target=".navbar-collapse.show">Contact Us</div>
                             </Link>
                         </li>
-                        {/* <li class="nav-item">
-                            <a href= {process.env.PUBLIC_URL + '/Resume.pdf'} >
-                                <div className="navMenu" id="navContact" data-toggle="collapse" data-target=".navbar-collapse.show">Resume</div>
-                            </a>
-                        </li> */}
+                        
                     </ul>
                 </div>
             </nav>

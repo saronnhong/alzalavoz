@@ -2,16 +2,41 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require('mongoose');
+const db = require('./models');
+const bodyParser = require('body-parser');
+
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+mongoose
+   // for the app to work as a deployed app with mLAB MongoDB provision on Heroku, use:
+  //  .connect(process.env.MONGODB_URI || 'mongodb://user:password1@ds045598.mlab.com:45598/heroku_xt21mbhz', { useNewUrlParser: true, useCreateIndex: true })
+   // for LOCAL Testing, use:
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/alzaDB', { useNewUrlParser: true})
+  .then(() => console.log("MongoDB Connected!"))
+  .catch(err => console.error(err));
 // Define API routes here
+
+app.post('/api/savearticle/:id', function(req, res) {
+  console.log(req.body);
+  db.Article.create(req.body);
+  // db.Articles.create({})
+//   .then(function () {
+//     return db.Articles.findOneAndUpdate({title: "this"});
+// })
+    // .then(data => res.json(data))
+    // .catch(err => res.status(400).json(err));
+
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs
